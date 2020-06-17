@@ -8,9 +8,18 @@
  * getOdds([1, 2, 3, 4, 5, 6, 7, 8, 9]) -> [1, 3, 5, 7, 9]
  * getOdds([11, 35, 52, 14, 56, 601, 777, 888, 999]) -> [11, 35, 601, 777, 999]
  */
+
 function getOdds(numbers) {
-  // Your code here
+  let n1 = numbers;
+  let n2 = [];
+  for (let i = 0; i < n1.length; i++) {
+    if (n1[i] % 2 !== 0) n2.push(n1[i]);
+  }
+  return n2;
 }
+
+console.log(getOdds([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+console.log(getOdds([11, 35, 52, 14, 56, 601, 777, 888, 999]));
 
 /**
  * getEvens(numbers):
@@ -23,8 +32,15 @@ function getOdds(numbers) {
  * getEvens([11, 35, 52, 14, 56, 601, 777, 888, 999]) -> [52, 14, 56, 888]
  */
 function getEvens(numbers) {
-  // Your code here
+  let n1 = numbers;
+  let n2 = [];
+  for (let i = 0; i < n1.length; i++) {
+    if (n1[i] % 2 === 0) n2.push(n1[i]);
+  }
+  return n2;
 }
+console.log(getEvens([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+console.log(getEvens([11, 35, 52, 14, 56, 601, 777, 888, 999]));
 
 /**
  * getDuplicateCount(x, numbers):
@@ -36,8 +52,20 @@ function getEvens(numbers) {
  * getDuplicateCount(52, [11, 35, 52, 14, 56, 601, 52, 777, 888, 999, 52]) -> 3
  */
 function getDuplicateCount(x, numbers) {
-  // Your code here
+  let count = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] === x) count++;
+  }
+  return count;
 }
+
+console.log(
+  getDuplicateCount(1, [1, 2, 3, 1, 4, 5, 6, 1, 7, 8, 9, 10, 11, 1, 12, 13])
+);
+console.log(
+  getDuplicateCount(52, [11, 35, 52, 14, 56, 601, 52, 777, 888, 999, 52])
+);
 
 /**
  * youGottaCalmDown(s):
@@ -54,7 +82,11 @@ function getDuplicateCount(x, numbers) {
  * - Use string method .endsWith()
  */
 function youGottaCalmDown(s) {
-  // Your code here
+  while (s.endsWith("!!")) s = s.slice(0, -1);
+  return s;
 }
+console.log(youGottaCalmDown("HI!!!!!!!!!!"));
+console.log(youGottaCalmDown("Taylor Schwifting!!!!!!!!!!!"));
+console.log(youGottaCalmDown("Hellooooo"));
 
 module.exports = { getOdds, getEvens, getDuplicateCount, youGottaCalmDown };
